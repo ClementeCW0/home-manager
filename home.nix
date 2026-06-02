@@ -33,6 +33,8 @@ in
 		tmux
 		nodejs
 		gcc
+		lazygit
+		linuxKernel.packages.linux_7_0.virtualboxGuestAdditions # Remove if not in a virtual machine
 	];
 
 
