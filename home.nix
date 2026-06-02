@@ -8,7 +8,16 @@ in
 {
 	home.username = "clemente";
 	home.homeDirectory = "/home/clemente";
-	programs.git.enable = true;
+	programs.git = {
+		enable = true;
+		settings = {
+			user = {
+				name = "Clemente Wacquez";
+				email = "clemente.wacquez@uc.cl";
+			};
+		init.defaultBranch = "main";
+		};
+	};
 	home.stateVersion = "26.05";
 	programs.fish = {
 		enable = true;
@@ -24,7 +33,7 @@ in
 		tmux
 		nodejs
 		gcc
-	]
+	];
 
 
 }
