@@ -1,7 +1,7 @@
 {config, pkgs, ...}:
 
 let
-	dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
+	dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/Config";
 	create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
 in
 
@@ -28,6 +28,11 @@ in
 		recursive = true;
 	};
 
+	xdg.configFile."nvim" = {
+		source = create_symlink "${dotfiles}/nvim/";
+		recursive = true;
+	};
+
 	home.packages = with pkgs; [
     		neovim
 		tmux
@@ -35,6 +40,7 @@ in
 		gcc
 		lazygit
 		linuxKernel.packages.linux_7_0.virtualboxGuestAdditions # Remove if not in a virtual machine
+		python313Packages.pywal16
 	];
 
 
