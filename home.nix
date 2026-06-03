@@ -3,6 +3,13 @@
 let
 	dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/Config";
 	create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
+	configs = {
+		i3 = "i3";
+		i3status = "i3status";
+		nvim = "nvim";
+		tmux = "tmux";
+		picom = "picom";
+	};
 in
 
 {
@@ -19,24 +26,15 @@ in
 		};
 	};
 	home.stateVersion = "26.05";
-	programs.fish = {
+	programs.bash = {
 		enable = true;
 	};
 
-	xdg.configFile."i3" = {
-		source = create_symlink "${dotfiles}/i3/";
-		recursive = true;
-	};
-
-	xdg.configFile."nvim" = {
-		source = create_symlink "${dotfiles}/nvim/";
-		recursive = true;
-	};
-
-	xdg.configFile."tmux" = {
-		source = create_symlink "${dotfiles}/tmux/";
-		recursive = true;
-	};
+	xdg.configFile = builtins.mapAttrs
+		(name: subpath: {
+			source = create_symlink "${dotfiles}/${subpath}";
+			recursive = true;
+			}) configs;
 
 	home.packages = with pkgs; [
 		lazygit
@@ -47,7 +45,7 @@ in
 		# Wallpaper:
 		python313Packages.pywal16
 		python313Packages.colorthief # color grabbing backend
-		imagemagick
+		imagemagick # color grabbing backend
 		feh
 
 		# Screenshots
@@ -56,10 +54,16 @@ in
 
 	home.sessionVariables = {
 		EDITOR = "nvim";
+		PATH = builtins.getEnv "PATH" + "${config.home.homeDirectory}/.local/share/nvim/mason";
 	};
 
-	# TODO: write the contents of Xresources. It should have the line
-	#	#inlcude "/home/clemente/.cacche/wal/colors.Xresources"
+	
+	# Theme setup
+
+	home.file.".Xresources".text = ''
+	#include "/home/clemente/.cache/wal/colors.Xresources"
+	'';
+
 	home.file.".xinitrc".text = ''
 	#!/bin/sh
 	setxkbmap latam
