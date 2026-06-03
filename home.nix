@@ -33,15 +33,42 @@ in
 		recursive = true;
 	};
 
+	xdg.configFile."tmux" = {
+		source = create_symlink "${dotfiles}/tmux/";
+		recursive = true;
+	};
+
 	home.packages = with pkgs; [
-    		neovim
-		tmux
-		nodejs
-		gcc
 		lazygit
+		tree-sitter
+
 		linuxKernel.packages.linux_7_0.virtualboxGuestAdditions # Remove if not in a virtual machine
+
+		# Wallpaper:
 		python313Packages.pywal16
+		python313Packages.colorthief # color grabbing backend
+		imagemagick
+		feh
+
+		# Screenshots
+		flameshot
 	];
 
+	home.sessionVariables = {
+		EDITOR = "nvim";
+	};
 
+	# TODO: write the contents of Xresources. It should have the line
+	#	#inlcude "/home/clemente/.cacche/wal/colors.Xresources"
+	home.file.".xinitrc".text = ''
+	#!/bin/sh
+	setxkbmap latam
+	xrdb -merge ~/.Xresources
+
+	xset s off
+	xset -dpms
+	xset s noblank
+
+	exec i3
+	'';
 }

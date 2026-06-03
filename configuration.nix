@@ -37,17 +37,7 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  services.xserver = {
-	enable = true;
-	autoRepeatDelay = 200;
-	autoRepeatInterval = 35;
-	windowManager.i3.enable = true;
-};
 
-
-  
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -83,11 +73,34 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     neovim
+    tmux
     wget
     git
     openssh
     alacritty
+    gnumake
+
+
+    xinit
+
+
+    nodejs
+
+    # Compilers
+    cargo
+    gcc
+
   ];
+
+  # Enable the X11 windowing system.
+  # services.xserver.enable = true;
+  services.xserver = {
+	enable = true;
+	autoRepeatDelay = 200;
+	autoRepeatInterval = 35;
+	displayManager.startx.enable = true;
+	windowManager.i3.enable = true;
+};
 
   fonts.packages = with pkgs; [
 	nerd-fonts.jetbrains-mono
