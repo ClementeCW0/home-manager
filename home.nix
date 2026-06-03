@@ -36,6 +36,7 @@ in
 	programs.bash = {
 		enable = true;
 	};
+	#programs.steam.enable = true;
 
 	xdg.configFile = builtins.mapAttrs
 		(name: subpath: {
@@ -59,6 +60,9 @@ in
 
 		# Screenshots
 		flameshot
+		
+		# Games
+		steam
 	];
 
 	home.sessionVariables = {
