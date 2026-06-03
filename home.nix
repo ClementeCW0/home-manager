@@ -10,6 +10,12 @@ let
 		tmux = "tmux";
 		picom = "picom";
 	};
+
+	myDmenu = pkgs.dmenu.overrideAttrs (old: {
+		patches = (old.patches or []) ++ [
+			./patches/dmenu/dmenu-center-20250407-b1e217b.diff
+			];
+		});
 in
 
 {
@@ -47,6 +53,8 @@ in
 		python313Packages.colorthief # color grabbing backend
 		imagemagick # color grabbing backend
 		feh
+
+		myDmenu
 
 		# Screenshots
 		flameshot
