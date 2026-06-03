@@ -62,7 +62,7 @@ in
 
 	home.sessionVariables = {
 		EDITOR = "nvim";
-		PATH = builtins.getEnv "PATH" + "${config.home.homeDirectory}/.local/share/nvim/mason";
+		#PATH = builtins.getEnv "PATH" + "${config.home.homeDirectory}/.local/share/nvim/mason";
 	};
 
 	
