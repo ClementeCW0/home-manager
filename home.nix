@@ -14,6 +14,7 @@ let
 	myDmenu = pkgs.dmenu.overrideAttrs (old: {
 		patches = (old.patches or []) ++ [
 			./patches/dmenu/dmenu-center-20250407-b1e217b.diff
+			./patches/dmenu/dmenu-xresources-4.9.diff
 			];
 		});
 in
