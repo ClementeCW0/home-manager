@@ -105,6 +105,7 @@
 	displayManager.startx.enable = true;
 	windowManager.i3.enable = true;
   };
+  services.picom.enable = true;
 
   fonts.packages = with pkgs; [
 	nerd-fonts.jetbrains-mono
@@ -124,7 +125,6 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  services.picom.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

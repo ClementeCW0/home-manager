@@ -72,6 +72,7 @@ in
 		cmatrix
 
 	];
+  	#services.picom.enable = true;
 
 	home.sessionVariables = {
 		EDITOR = "nvim";
