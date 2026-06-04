@@ -71,6 +71,8 @@ in
 		htop
 		cmatrix
 
+		zathura
+
 	];
   	#services.picom.enable = true;
 
