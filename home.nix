@@ -1,7 +1,7 @@
 {config, pkgs, system, inputs, ...}:
 
 let
-	dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/Config";
+	dotfiles = "${config.home.homeDirectory}/home-manager/Config";
 	create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
 	configs = {
 		i3 = "i3";

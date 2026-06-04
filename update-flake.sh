@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 flake="nixos-wacquez"
-pushd $HOME/nixos-dotfiles/
+pushd $HOME/home-manager/
 	sudo nixos-rebuild switch --impure --flake ".#$flake"
 	if [ $? -eq 0 ]; then
 		git add ./configuration.nix ./home.nix ./flake.nix ./flake.lock
