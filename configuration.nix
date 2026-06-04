@@ -85,6 +85,7 @@
     #inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}
 
     xinit
+    xdotool
     picom
 
 
