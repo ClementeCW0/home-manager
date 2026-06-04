@@ -72,6 +72,8 @@ in
 		cmatrix
 
 		zathura
+		texpresso
+		texliveFull
 
 	];
   	#services.picom.enable = true;
