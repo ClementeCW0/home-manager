@@ -23,7 +23,7 @@
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  # time.timeZone = "Europe/Amsterdam";
+  time.timeZone = "America/Santiago";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -82,6 +82,7 @@
     alacritty
     gnumake
 
+    #inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}
 
     xinit
     picom
@@ -103,7 +104,7 @@
 	autoRepeatInterval = 35;
 	displayManager.startx.enable = true;
 	windowManager.i3.enable = true;
-};
+  };
 
   fonts.packages = with pkgs; [
 	nerd-fonts.jetbrains-mono

@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{config, pkgs, system, inputs, ...}:
 
 let
 	dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/Config";
@@ -50,6 +50,8 @@ in
 
 		linuxKernel.packages.linux_7_0.virtualboxGuestAdditions # Remove if not in a virtual machine
 
+		inputs.zen-browser.packages."${system}".default
+
 		# Wallpaper:
 		python313Packages.pywal16
 		python313Packages.colorthief # color grabbing backend
@@ -63,6 +65,12 @@ in
 		
 		# Games
 		steam
+
+		# Flexing
+		fastfetch
+		htop
+		cmatrix
+
 	];
 
 	home.sessionVariables = {
