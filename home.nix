@@ -12,6 +12,7 @@ let
 		nvim = "nvim";
 		tmux = "tmux";
 		picom = "picom";
+		alacritty = "alacritty";
 	};
 
 	myDmenu = pkgs.dmenu.overrideAttrs (old: {
