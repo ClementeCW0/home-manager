@@ -74,11 +74,16 @@ in
 		wine64
 		openmw
 
+		# Personal management
+		remind
+		hledger
+
 		# Flexing
 		fastfetch
 		htop
 		cmatrix
 
+		# Pdf's, latex
 		zathura
 		texpresso
 		texliveFull
