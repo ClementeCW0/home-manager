@@ -115,6 +115,7 @@
     brightnessctl
     picom
     jq
+    killall
 
 
     nodejs
