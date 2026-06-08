@@ -3,6 +3,9 @@
 let
 	dotfiles = "${config.home.homeDirectory}/home-manager/Config";
 	create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
+	imports = [
+			./modules/theme.nix
+		];
 	configs = {
 		i3 = "i3";
 		i3status = "i3status";
@@ -48,7 +51,7 @@ in
 		lazygit
 		tree-sitter
 
-		linuxKernel.packages.linux_7_0.virtualboxGuestAdditions # Remove if not in a virtual machine
+		# linuxKernel.packages.linux_7_0.virtualboxGuestAdditions # Remove if not in a virtual machine
 
 		inputs.zen-browser.packages."${system}".default
 
@@ -63,8 +66,9 @@ in
 		# Screenshots
 		flameshot
 		
-		# Games
+		# Games, emulation
 		steam
+		wine
 
 		# Flexing
 		fastfetch
