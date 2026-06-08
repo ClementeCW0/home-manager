@@ -116,6 +116,7 @@
     picom
     jq
     killall
+    playerctl
 
 
     nodejs
