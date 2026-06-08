@@ -3,9 +3,6 @@
 let
 	dotfiles = "${config.home.homeDirectory}/home-manager/Config";
 	create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
-	imports = [
-			./modules/theme.nix
-		];
 	configs = {
 		i3 = "i3";
 		i3status = "i3status";
@@ -24,6 +21,10 @@ let
 in
 
 {
+
+	imports = [
+			./modules/theme.nix
+		];
 	home.username = "clemente";
 	home.homeDirectory = "/home/clemente";
 	programs.git = {
