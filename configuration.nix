@@ -108,6 +108,7 @@
     #inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}
 
     xinit
+    arandr
     xdotool
     pwvucontrol
     pulseaudio # I use pipewire, but I need pactl
