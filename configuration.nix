@@ -107,6 +107,7 @@
     openssh
     alacritty
     gnumake
+    networkmanagerapplet
 
     #inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}
 
