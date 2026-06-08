@@ -39,9 +39,6 @@ in
 		};
 	};
 	home.stateVersion = "26.05";
-	programs.bash = {
-		enable = true;
-	};
 	#programs.steam.enable = true;
 
 	xdg.configFile = builtins.mapAttrs
@@ -77,6 +74,7 @@ in
 		# Personal management
 		remind
 		hledger
+		hledger-ui
 
 		# Flexing
 		fastfetch
@@ -91,8 +89,16 @@ in
 	];
   	#services.picom.enable = true;
 
+	programs.bash = {
+		enable = true;
+		shellAliases = {
+			C="$HOME/Scripts/calendar.sh";
+			H="$HOME/Scripts/hledger.sh";
+			};
+	};
 	home.sessionVariables = {
-		EDITOR = "nvim";
+		EDITOR 	    = "nvim";
+		LEDGER_FILE = "$HOME/Cuentas/.hledger.journal";
 		#PATH = builtins.getEnv "PATH" + "${config.home.homeDirectory}/.local/share/nvim/mason";
 	};
 
