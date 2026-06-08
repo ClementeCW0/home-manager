@@ -68,7 +68,7 @@ in
 		
 		# Games, emulation
 		steam
-		wine
+		wine64
 
 		# Flexing
 		fastfetch
