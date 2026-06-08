@@ -103,6 +103,7 @@
     tmux
     wget
     git
+    git-crypt
     openssh
     alacritty
     gnumake
