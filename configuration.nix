@@ -114,6 +114,9 @@
     pwvucontrol
     pulseaudio # I use pipewire, but I need pactl
 
+    libinput
+    libinput-gestures
+
     brightnessctl
     picom
     jq
