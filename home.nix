@@ -69,6 +69,7 @@ in
 		# Games, emulation
 		steam
 		wine64
+		openmw
 
 		# Flexing
 		fastfetch
