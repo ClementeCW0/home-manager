@@ -10,6 +10,7 @@ let
 		tmux = "tmux";
 		picom = "picom";
 		alacritty = "alacritty";
+		libinput = "libinput-gestures.conf";
 	};
 
 	myDmenu = pkgs.dmenu.overrideAttrs (old: {
