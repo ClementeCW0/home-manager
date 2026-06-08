@@ -111,6 +111,8 @@
     xdotool
     pwvucontrol
     pulseaudio # I use pipewire, but I need pactl
+
+    brightnessctl
     picom
     jq
 
