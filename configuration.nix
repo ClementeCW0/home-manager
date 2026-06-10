@@ -94,6 +94,7 @@
   nixpkgs.config.allowUnfree = true;
   programs.steam.enable = true;
   programs.dconf.enable = true;
+  programs.nix-ld.enable = true;
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
