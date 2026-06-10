@@ -101,6 +101,7 @@
   environment.systemPackages = with pkgs; [
     vim 
     neovim
+    ranger
     tmux
     wget
     git
