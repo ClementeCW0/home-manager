@@ -12,7 +12,6 @@ let
 		alacritty = "alacritty";
 		"libinput-gestures.conf" = "libinput-gestures.conf";
 		wallust = "wallust";
-		flameshot = "flameshot";
 	};
 
 	myDmenu = pkgs.dmenu.overrideAttrs (old: {
