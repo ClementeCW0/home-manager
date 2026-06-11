@@ -56,8 +56,7 @@ in
 		inputs.zen-browser.packages."${system}".default
 
 		# Wallpaper:
-		python313Packages.pywal16
-		python313Packages.colorthief # color grabbing backend
+		wallust
 		imagemagick # color grabbing backend
 		feh
 
