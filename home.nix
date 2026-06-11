@@ -105,7 +105,7 @@ in
 	# Theme setup
 
 	home.file.".Xresources".text = ''
-	#include "/home/clemente/.cache/wal/colors.Xresources"
+	#include "/home/clemente/.cache/wallust/Xresources"
 	'';
 
 	home.file.".xinitrc".text = ''
