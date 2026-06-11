@@ -11,6 +11,7 @@ let
 		picom = "picom";
 		alacritty = "alacritty";
 		"libinput-gestures.conf" = "libinput-gestures.conf";
+		wallust = "wallust";
 	};
 
 	myDmenu = pkgs.dmenu.overrideAttrs (old: {
