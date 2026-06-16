@@ -17,6 +17,11 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  boot.kernelParams = [
+  # Disable Wi-Fi power saving to fix choppy audio with bluetooth devices
+   "rtw88_core.disable_lps_deep=Y"
+   ];
+
   networking.hostName = "nixos-wacquez"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
