@@ -119,7 +119,6 @@
     #inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}
 
     xinit
-    xauth
     arandr
     xdotool
     pwvucontrol
