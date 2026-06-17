@@ -149,8 +149,13 @@
 	enable = true;
 	autoRepeatDelay = 200;
 	autoRepeatInterval = 35;
-	displayManager.startx.enable = true;
 	windowManager.i3.enable = true;
+  };
+  services.displayManager.ly = {
+    enable = true;
+    settings = {
+      animation = "${./nixlogo.txt}";
+    };
   };
   #service.picom.enable = true;
 
