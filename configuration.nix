@@ -150,16 +150,14 @@
 	enable = true;
 	autoRepeatDelay = 200;
 	autoRepeatInterval = 35;
+	displayManager.startx.enable = true;
 	windowManager.i3.enable = true;
   };
-  services.displayManager.ly = {
-    enable = true;
-    x11Support = true;
-    settings = {
-      animation = "${./nixlogo.txt}";
-    };
-  };
-  #service.picom.enable = true;
+
+
+  # Greet with Nix logo
+  environment.etc."issue".text = builtins.readFile ./nixlogo.txt;
+
 
   fonts.packages = with pkgs; [
 	nerd-fonts.jetbrains-mono
