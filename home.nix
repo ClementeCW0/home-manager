@@ -110,14 +110,14 @@ in
 	'';
 
 	home.file.".xinitrc".text = ''
-	#!/bin/sh
-	setxkbmap latam
-	xrdb -merge ~/.Xresources
+#!/usr/bin/env bash
+setxkbmap latam
+xrdb -merge ~/.Xresources
 
-	xset s off
-	xset -dpms
-	xset s noblank
+xset s off
+xset -dpms
+xset s noblank
 
-	exec i3
+exec i3
 	'';
 }

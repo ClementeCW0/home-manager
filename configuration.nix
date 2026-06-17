@@ -153,6 +153,7 @@
   };
   services.displayManager.ly = {
     enable = true;
+    x11Support = true;
     settings = {
       animation = "${./nixlogo.txt}";
     };
