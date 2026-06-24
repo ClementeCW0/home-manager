@@ -25,7 +25,10 @@
   networking.hostName = "nixos-wacquez"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+  enable = true;
+  wifi.powersave = false;
+  };
 
   hardware.bluetooth = {
   enable = true;
