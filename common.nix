@@ -204,6 +204,7 @@
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
   # system.copySystemConfiguration = true;
+  services.tailscale.enable = true;
 
   system.stateVersion = "26.05";
 
