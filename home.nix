@@ -95,6 +95,12 @@ in
 			C="$HOME/Scripts/calendar.sh";
 			H="$HOME/Scripts/hledger.sh";
 			};
+		profileExtra = lib.optionalString (osConfig.networking.hostName == "desktop") ''
+			# Auto-exec startx on tty1
+			if [ -z "$DISPLAY" ] && { [ "$(tty)" = "/dev/tty1" ] || [ "$XDG_VTNR" = "1" ]; }; then
+				exec startx
+			fi
+		'';
 	};
 	home.sessionVariables = {
 		EDITOR 	    = "nvim";
