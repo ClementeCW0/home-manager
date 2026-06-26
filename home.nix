@@ -130,17 +130,4 @@ xset s noblank
 ##''}
 exec i3
 	'';
-
-	home.file.".bash_profile".text = lib.mkForce ''
-[[ -f ~/.profile ]] && . ~/.profile
-[[ -f ~/.bashrc ]] && . ~/.bashrc
-
-# ${osConfig.networking.hostName}
-${lib.optionalString (osConfig.networking.hostName == "desktop") ''
-# Auto-exec startx on tty1
-if [ -z "$DISPLAY" ] && { [ "$(tty)" = "/dev/tty1" ] || [ "$XDG_VTNR" = "1" ]; }; then
-	exec startx
-fi
-''}
-	'';
 }
