@@ -13,7 +13,7 @@
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = [ pkgs.input-leap ];
         shellHook = ''
-          exec input-leapc -f --disable-crypto 192.168.1.95
+          exec input-leapc -f --disable-crypto 100.70.98.58
         '';
       };
     };
