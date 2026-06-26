@@ -117,6 +117,7 @@
     alacritty
     gnumake
     networkmanagerapplet
+    ripgrep-all
 
     #inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}
 
