@@ -118,10 +118,10 @@ xset s off
 xset -dpms
 xset s noblank
 
-${lib.optionalString (osConfig.networking.hostName == "desktop") ''
-# Start Input Leap client sandbox
-(cd ${config.home.homeDirectory}/home-manager/input-leap/client && nix develop) &
-''}
+##${lib.optionalString (osConfig.networking.hostName == "desktop") ''
+### Start Input Leap client sandbox
+##(cd ${config.home.homeDirectory}/home-manager/input-leap/client && nix develop) &
+##''}
 exec i3
 	'';
 
