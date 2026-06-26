@@ -11,5 +11,5 @@
     #4713    # PipeWire Audio
     24800   # Input Leap Keyboard/Mouse
   ];
-  networking.firewall.allowedTCPPorts = [ 4713 ];
+  #networking.firewall.allowedTCPPorts = [ 4713 ];
 }
