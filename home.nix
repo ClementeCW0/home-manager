@@ -1,4 +1,4 @@
-{config, pkgs, system, inputs, ...}:
+{ config, pkgs, lib, osConfig, system, inputs, ... }:
 
 let
 	dotfiles = "${config.home.homeDirectory}/home-manager/Config";
@@ -118,6 +118,22 @@ xset s off
 xset -dpms
 xset s noblank
 
+${lib.optionalString (osConfig.networking.hostName == "desktop") ''
+# Start Input Leap client sandbox
+(cd ${config.home.homeDirectory}/home-manager/input-leap/client && nix develop) &
+''}
 exec i3
+	'';
+
+	home.file.".bash_profile".text = lib.mkForce ''
+[[ -f ~/.profile ]] && . ~/.profile
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+
+${lib.optionalString (osConfig.networking.hostName == "desktop") ''
+# Auto-exec startx on tty1
+if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
+	exec startx
+fi
+''}
 	'';
 }

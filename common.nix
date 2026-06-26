@@ -22,7 +22,6 @@
    "rtw88_core.disable_lps_deep=Y"
    ];
 
-  networking.hostName = "nixos-wacquez"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager = {
@@ -196,8 +195,7 @@
     };
 
   # Open ports in the firewall.
-  # 24800: input-leap server
-  networking.firewall.allowedTCPPorts = [ 24800 ]; 
+
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
