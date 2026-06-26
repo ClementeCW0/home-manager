@@ -129,6 +129,7 @@ exec i3
 [[ -f ~/.profile ]] && . ~/.profile
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
+# ${osConfig.networking.hostName}
 ${lib.optionalString (osConfig.networking.hostName == "desktop") ''
 # Auto-exec startx on tty1
 if [ -z "$DISPLAY" ] && { [ "$(tty)" = "/dev/tty1" ] || [ "$XDG_VTNR" = "1" ]; }; then
