@@ -131,7 +131,7 @@ exec i3
 
 ${lib.optionalString (osConfig.networking.hostName == "desktop") ''
 # Auto-exec startx on tty1
-if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
+if [ -z "$DISPLAY" ] && { [ "$(tty)" = "/dev/tty1" ] || [ "$XDG_VTNR" = "1" ]; }; then
 	exec startx
 fi
 ''}
