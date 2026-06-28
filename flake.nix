@@ -10,16 +10,14 @@
 			url = "github:0xc000022070/zen-browser-flake";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		nix-flatpak.url = "github:gmodena/nix-flatpak";
 	};
 
-	outputs = {self, nixpkgs, home-manager, zen-browser, nix-flatpak, ... } @ inputs: {
+	outputs = {self, nixpkgs, home-manager, zen-browser, ... } @ inputs: {
 		nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			specialArgs = { inherit inputs; };
 			modules = [
 				./desktop.nix
-				nix-flatpak.nixosModules.nix-flatpak
 				home-manager.nixosModules.home-manager
 				{
 					home-manager = {
