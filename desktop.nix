@@ -10,4 +10,8 @@
 
   services.teamviewer.enable = true;
 
+
+  networking.firewall.interfaces."tailscale0".allowedTCPPorts = [ 
+  	59100 # Audiorelay
+  ];
 }
