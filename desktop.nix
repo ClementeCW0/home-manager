@@ -36,6 +36,7 @@ systemd.services.mpd.environment = {
 
   networking.firewall.interfaces."tailscale0".allowedTCPPorts = [ 
   	59100 # Audiorelay
+	65530 # audio share
 	6600  # MPD
   ];
 }
