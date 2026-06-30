@@ -13,17 +13,23 @@
 ########## MPD #################################################################################
 services.mpd = {
   enable = true;
-  musicDirectory = "/home/clemente/Music"; # Updated to your user path
+  musicDirectory = "/home/clemente/Music";
   user = "clemente"; 
   network.listenAddress = "any"; 
   
   settings = {
-    # Notice the square brackets added here to make it a list
     audio_output = [
       {
         type = "pipewire";
         name = "Desktop Audio Server";
       }
+      { # Visualizers
+        type = "fifo";
+        name = "my_fifo";
+        path = "/tmp/mpd.fifo";
+        format = "44100:16:2";
+      }
+
     ];
   };
 };
@@ -35,7 +41,7 @@ systemd.services.mpd.environment = {
 
 
   networking.firewall.interfaces."tailscale0".allowedTCPPorts = [ 
-  	59100 # Audiorelay
+  	# 59100 # Audiorelay
 	65530 # audio share
 	6600  # MPD
   ];
