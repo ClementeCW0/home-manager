@@ -26,7 +26,7 @@ services.mpd = {
       { # Visualizers
         type = "fifo";
         name = "my_fifo";
-        path = "/tmp/mpd.fifo";
+        path = "/run/user/1000/mpd.fifo";
         format = "44100:16:2";
       }
 
