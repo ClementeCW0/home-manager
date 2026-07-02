@@ -51,6 +51,9 @@
   };
 };
 
+# Input emulation
+hardware.uinput.enable = true;
+
   # Set your time zone.
   time.timeZone = "America/Santiago";
 
@@ -91,7 +94,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.clemente = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "input" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "input" "uinput" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
     ];
