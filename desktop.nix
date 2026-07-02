@@ -8,7 +8,7 @@
   networking.hostName = "desktop";
   services.getty.autologinUser = "clemente";
 
-  services.teamviewer.enable = true;
+  # services.teamviewer.enable = true;
 
 ########## MPD #################################################################################
 services.mpd = {
@@ -39,10 +39,25 @@ systemd.services.mpd.environment = {
 };
 ################################################################################################
 
+networking = {
+  interfaces = {
+    enp4s0 = {
+      wakeOnLan.enable = true;
+    };
+  };
+  firewall = {
+    allowedUDPPorts = [ 9 ];
+    interfaces."tailscale0".allowedTCPPorts = [ 
+      # 59100 # Audiorelay for closed source fans 
+      65530 # audio share for open source enyjoyers   
+      6600  # MPD
+    ];
+  };
+};
 
-  networking.firewall.interfaces."tailscale0".allowedTCPPorts = [ 
-  	# 59100 # Audiorelay
-	65530 # audio share
-	6600  # MPD
-  ];
+#  networking.firewall.interfaces."tailscale0".allowedTCPPorts = [ 
+#  	# 59100 # Audiorelay for closed source fans 
+#	65530 # audio share for open source enyjoyers   
+#	6600  # MPD
+#  ];
 }
