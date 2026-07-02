@@ -94,7 +94,7 @@ hardware.uinput.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.clemente = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "input" "uinput" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "input" "uinput" "video" "render" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
     ];
@@ -112,6 +112,7 @@ hardware.uinput.enable = true;
   };
   hardware.graphics = { # hardware.opengl until NixOS 24.05
     enable = true;
+    enable32Bit = true;
     extraPackages = with pkgs; [
       intel-media-driver # LIBVA_DRIVER_NAME=iHD (for HD Graphics starting Broadwell (2014) and newer)
       intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
