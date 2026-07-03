@@ -46,7 +46,10 @@ services.sunshine = {
     capSysAdmin = true;
     openFirewall = true;
   };
-  boot.kernelParams = [ "video=DVI-D-1:1600x720@60D" ];
+  boot.kernelParams = [ 
+    "video=DVI-D-1:1280x720@60D"  # Virtual display
+    "video=HDMI-A-1:1920x1080@60" # Phisycal display
+  ];
   # This option lets me see a mouse in the dummy display
   services.xserver.deviceSection = ''
   Option "SWcursor" "on"
