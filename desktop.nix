@@ -47,6 +47,14 @@ services.sunshine = {
     openFirewall = true;
   };
   boot.kernelParams = [ "video=DVI-D-1:1600x720@60D" ];
+  # This option lets me see a mouse in the dummy display
+  services.xserver.deviceSection = ''
+  Option "SWcursor" "on"
+'';
+  # And this allows me to create the dummy display to the right of my phisycal display
+  services.xserver.displayManager.setupCommands = ''
+  ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-A-1 --mode 1920x1080 --primary --output DVI-D-1 --mode 1280x720 --right-of HDMI-A-1
+'';
 ################################################################################################
 
 
