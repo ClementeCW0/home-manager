@@ -8,8 +8,6 @@
   networking.hostName = "desktop";
   services.getty.autologinUser = "clemente";
 
-  # services.teamviewer.enable = true;
-
 ########## MPD #################################################################################
 services.mpd = {
   enable = true;
@@ -48,6 +46,7 @@ services.sunshine = {
     capSysAdmin = true;
     openFirewall = true;
   };
+  boot.kernelParams = [ "video=DVI-D-1:1600x720@60D" ];
 ################################################################################################
 
 
