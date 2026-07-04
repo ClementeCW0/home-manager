@@ -72,8 +72,9 @@ networking = {
     allowedUDPPorts = [ 9 ];
     interfaces."tailscale0".allowedTCPPorts = [ 
       # 59100 # Audiorelay for closed source fans 
-      65530 # audio share for open source enyjoyers   
-      6600  # MPD
+      # 65530 # audio share for open source enyjoyers   
+      # 6600  # MPD
+      4533    # Navidrome
     ];
   };
 };
