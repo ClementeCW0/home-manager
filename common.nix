@@ -28,6 +28,7 @@
   enable = true;
   wifi.powersave = false;
   };
+  networking.nftables.enable = true;
 
   hardware.bluetooth = {
   enable = true;
