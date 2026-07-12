@@ -75,6 +75,7 @@ networking = {
       # 65530 # audio share for open source enyjoyers   
       # 6600  # MPD
       4533    # Navidrome
+      3131    # Deskreen
     ];
   };
 };
