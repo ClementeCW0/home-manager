@@ -28,6 +28,7 @@
   enable = true;
   wifi.powersave = false;
   };
+  networking.nftables.enable = true;
 
   hardware.bluetooth = {
   enable = true;
@@ -177,6 +178,9 @@ hardware.uinput.enable = true;
 
   # Greet with Nix logo
   environment.etc."issue".text = builtins.readFile ./nixlogo.txt;
+
+  # Waydroid for android emulation
+  virtualisation.waydroid.enable = true;
 
 
   fonts.packages = with pkgs; [
