@@ -26,7 +26,9 @@ in
 
 	imports = [
 			./modules/theme.nix
+			./modules/exocortex.nix
 		];
+	services.exocortex.enable = true;
 	home.username = "clemente";
 	home.homeDirectory = "/home/clemente";
 	programs.git = {
