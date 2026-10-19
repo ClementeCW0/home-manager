@@ -1,5 +1,22 @@
 {
   "nodes": {
+    "exocortex": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792373146,
+        "narHash": "sha256-+OOfoNFgb/IfG94skuLaOqLcKjTw71dO7D9jktTpIto=",
+        "path": "/home/clemente/Scripts/AGENT-FLOW",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/clemente/Scripts/AGENT-FLOW",
+        "type": "path"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -59,6 +76,7 @@
     },
     "root": {
       "inputs": {
+        "exocortex": "exocortex",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "zen-browser": "zen-browser"

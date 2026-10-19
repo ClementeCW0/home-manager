@@ -10,6 +10,10 @@
 			url = "github:0xc000022070/zen-browser-flake";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		exocortex = {
+			url = "path:/home/clemente/Scripts/AGENT-FLOW";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 	};
 
 	outputs = {self, nixpkgs, home-manager, zen-browser, ... } @ inputs: {
