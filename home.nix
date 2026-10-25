@@ -94,6 +94,7 @@ in
 		shellAliases = {
 			C="$HOME/Scripts/calendar.sh";
 			H="$HOME/Scripts/hledger.sh";
+			agy="$HOME/.local/bin/agy";
 			};
 		profileExtra = lib.optionalString (osConfig.networking.hostName == "desktop") ''
 			# Auto-exec startx on tty1
