@@ -13,7 +13,7 @@
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = [ pkgs.input-leap ];
         shellHook = ''
-          exec input-leapc -f --disable-crypto 100.70.98.58
+          exec nice --10 input-leapc -f --disable-crypto 100.70.98.58
         '';
       };
     };
