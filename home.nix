@@ -70,7 +70,7 @@ in
 		
 		# Games, emulation
 		steam
-		wine64
+		wineWow64Packages.stable
 		openmw
 
 		# Personal management
