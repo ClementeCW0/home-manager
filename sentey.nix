@@ -5,6 +5,11 @@
     ./common.nix
   ];
 
+  # BIOS Bootloader configuration
+  boot.loader.grub.enable = true;
+  # Set this to the disk you want to install GRUB to (e.g., /dev/sda, /dev/nvme0n1)
+  boot.loader.grub.device = "/dev/sda";
+
   networking.hostName = "sentey";
   services.getty.autologinUser = "clemente";
 

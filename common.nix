@@ -10,17 +10,14 @@
       /etc/nixos/hardware-configuration.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # NOT EVERY MACHINE HAS EFI BOOT!!
+  ## Use the systemd-boot EFI boot loader.
+  #boot.loader.systemd-boot.enable = true;
+  #boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.kernelParams = [
-  # Disable Wi-Fi power saving to fix choppy audio with bluetooth devices
-   "rtw88_core.disable_lps_deep=Y"
-   ];
 
 
   # Configure network connections interactively with nmcli or nmtui.

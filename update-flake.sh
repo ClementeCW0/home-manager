@@ -3,11 +3,12 @@
 # Target the host configuration: use the first argument if provided, otherwise default to current hostname
 flake="${1:-$(hostname)}"
 
-if [[ "$flake" != "desktop" && "$flake" != "laptop" ]]; then
+if [[ "$flake" != "desktop" && "$flake" != "laptop" && "$flake" != "sentey" ]]; then
 	echo "Error: Resolved hostname '$flake' is not configured in flake.nix."
 	echo "To select a host configuration manually, run:"
 	echo "  $0 desktop    # to apply the desktop configuration"
 	echo "  $0 laptop     # to apply the laptop configuration"
+	echo "  $0 sentey     # to apply the sentey configuration"
 	exit 1
 fi
 
