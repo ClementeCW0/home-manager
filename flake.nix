@@ -13,11 +13,11 @@
 	};
 
 	outputs = {self, nixpkgs, home-manager, zen-browser, ... } @ inputs: {
-		nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
+		nixosConfigurations.tufnix = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			specialArgs = { inherit inputs; };
 			modules = [
-				./desktop.nix
+				./machines/tufnix.nix
 				home-manager.nixosModules.home-manager
 				{
 					home-manager = {
@@ -32,11 +32,11 @@
 			];
 		};
 
-		nixosConfigurations.sentey = nixpkgs.lib.nixosSystem {
+		nixosConfigurations.senteynix = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			specialArgs = { inherit inputs; };
 			modules = [
-				./sentey.nix
+				./machines/senteynix.nix
 				home-manager.nixosModules.home-manager
 				{
 					home-manager = {
@@ -51,11 +51,11 @@
 			];
 		};
 
-		nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
+		nixosConfigurations.dellnix = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			specialArgs = { inherit inputs; };
 			modules = [
-				./laptop.nix
+				./machines/dellnix.nix
 				home-manager.nixosModules.home-manager
 				{
 					home-manager = {
