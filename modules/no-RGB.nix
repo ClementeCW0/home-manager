@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+  boot.kernelModules = [ "i2c-dev" "i2c-piix4" ];
   # Ensure OpenRGB and its udev rules are enabled
   services.hardware.openrgb.enable = true;
 
