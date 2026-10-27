@@ -5,19 +5,17 @@
     ../modules/BIOS/bios.nix
     ../common.nix
   ];
-  imports = [
-  ];
 
   # Set the custom option defined in bios.nix
   mySystem.bootDevice = "/dev/sda";
 
-  networking.hostName = "sentey";
+  networking.hostName = "senteynix";
   services.getty.autologinUser = "clemente";
 
 ########## Network #############################################################################
 networking = {
   interfaces = {
-    enp4s0 = {
+    enp3s0 = {
       wakeOnLan.enable = true;
     };
   };
