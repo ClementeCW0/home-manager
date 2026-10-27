@@ -12,62 +12,30 @@
 		};
 	};
 
-	outputs = {self, nixpkgs, home-manager, zen-browser, ... } @ inputs: {
-		nixosConfigurations.tufnix = nixpkgs.lib.nixosSystem {
-			system = "x86_64-linux";
-			specialArgs = { inherit inputs; };
-			modules = [
-				./machines/tufnix.nix
-				home-manager.nixosModules.home-manager
-				{
-					home-manager = {
-						useGlobalPkgs = true;
-						useUserPackages = true;
-						users.clemente = import ./home.nix;
-						backupFileExtension = "bak";
-						extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
-
-					};
-				}
-			];
-		};
-
-		nixosConfigurations.senteynix = nixpkgs.lib.nixosSystem {
-			system = "x86_64-linux";
-			specialArgs = { inherit inputs; };
-			modules = [
-				./machines/senteynix.nix
-				home-manager.nixosModules.home-manager
-				{
-					home-manager = {
-						useGlobalPkgs = true;
-						useUserPackages = true;
-						users.clemente = import ./home.nix;
-						backupFileExtension = "bak";
-						extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
-
-					};
-				}
-			];
-		};
-
-		nixosConfigurations.dellnix = nixpkgs.lib.nixosSystem {
-			system = "x86_64-linux";
-			specialArgs = { inherit inputs; };
-			modules = [
-				./machines/dellnix.nix
-				home-manager.nixosModules.home-manager
-				{
-					home-manager = {
-						useGlobalPkgs = true;
-						useUserPackages = true;
-						users.clemente = import ./home.nix;
-						backupFileExtension = "bak";
-						extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
-
-					};
-				}
-			];
-		};
-	};
+	outputs = {self, nixpkgs, home-manager, zen-browser, ... } @ inputs:
+	  let
+            mkHost = hostname: nixpkgs.lib.nixosSystem {
+              system = "x86_64-linux";
+              specialArgs = { inherit inputs; };
+              modules = [
+                ./machines/${hostname}.nix
+                home-manager.nixosModules.home-manager
+                {
+                  home-manager = {
+                    useGlobalPkgs = true;
+                    useUserPackages = true;
+                    users.clemente = import ./home.nix;
+                    backupFileExtension = "bak";
+                    extraSpecialArgs = { inherit inputs; system = "x86_64-linux"; };
+                  };
+                }
+              ];
+            };
+          in {
+            	nixosConfigurations = {
+            	  tufnix = mkHost "tufnix";
+            	  dellnix = mkHost "dellnix";
+            	  senteynix = mkHost "senteynix";
+            	};
+            };
 }

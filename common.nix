@@ -10,11 +10,6 @@
       /etc/nixos/hardware-configuration.nix
     ];
 
-  # NOT EVERY MACHINE HAS EFI BOOT!!
-  ## Use the systemd-boot EFI boot loader.
-  #boot.loader.systemd-boot.enable = true;
-  #boot.loader.efi.canTouchEfiVariables = true;
-
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -55,31 +50,6 @@ hardware.uinput.enable = true;
   # Set your time zone.
   time.timeZone = "America/Santiago";
 
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
-
-
-
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable sound.
-  #services.pulseaudio.enable = true;
-  # OR
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -98,7 +68,6 @@ hardware.uinput.enable = true;
     ];
   };
 
-  # programs.firefox.enable = true;
   nixpkgs.config.allowUnfree = true;
   programs.steam.enable = true;
   programs.dconf.enable = true;
@@ -176,23 +145,11 @@ hardware.uinput.enable = true;
   # Greet with Nix logo
   environment.etc."issue".text = builtins.readFile ./nixlogo.txt;
 
-  # Waydroid for android emulation
-  virtualisation.waydroid.enable = true;
-
-
   fonts.packages = with pkgs; [
 	nerd-fonts.jetbrains-mono
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # List services that you want to enable:
 
@@ -214,19 +171,8 @@ hardware.uinput.enable = true;
       };
     };
 
-  # Open ports in the firewall.
-
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
   services.tailscale.enable = true;
 
   system.stateVersion = "26.05";
 
 }
-
