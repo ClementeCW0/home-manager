@@ -2,6 +2,7 @@
 
 {
   boot.kernelModules = [ "i2c-dev" "i2c-piix4" ];
+  boot.kernelParams = [ "acpi_enforce_resources=lax" ];
   # Ensure OpenRGB and its udev rules are enabled
   services.hardware.openrgb.enable = true;
 
