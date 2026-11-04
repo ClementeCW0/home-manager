@@ -93,6 +93,7 @@ hardware.uinput.enable = true;
   environment.systemPackages = with pkgs; [
     vim 
     neovim
+    glow
     ranger
     tmux
     wget
