@@ -118,6 +118,9 @@ in
 
 	home.file.".xinitrc".text = ''
 #!/usr/bin/env bash
+systemctl --user import-environment DISPLAY XAUTHORITY
+dbus-update-activation-environment --systemd DISPLAY XAUTHORITY
+
 setxkbmap latam
 xrdb -merge ~/.Xresources
 
