@@ -104,6 +104,7 @@ hardware.uinput.enable = true;
     gnumake
     networkmanagerapplet
     ripgrep-all
+    glow
 
     #inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}
 
