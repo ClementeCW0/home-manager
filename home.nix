@@ -96,7 +96,7 @@ in
 			H="$HOME/Scripts/hledger.sh";
 			agy="$HOME/.local/bin/agy";
 			};
-		profileExtra = lib.optionalString (osConfig.networking.hostName == "desktop") ''
+		profileExtra = lib.optionalString (osConfig.networking.hostName == "tufnix") ''
 			# Auto-exec startx on tty1
 			if [ -z "$DISPLAY" ] && { [ "$(tty)" = "/dev/tty1" ] || [ "$XDG_VTNR" = "1" ]; }; then
 				exec startx
